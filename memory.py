@@ -1,3 +1,8 @@
-from langchain.memory import ConversationBufferMemory
+from langchain.memory import ConversationBufferWindowMemory
 def get_memory():
-    return ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+    return ConversationBufferWindowMemory(
+        memory_key="chat_history",
+        return_messages=True,
+        k=5  # Keep last 5 turns
+    )
+
